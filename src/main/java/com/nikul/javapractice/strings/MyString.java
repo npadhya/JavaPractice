@@ -29,7 +29,6 @@ public class MyString {
 
 		int thisStringLength = thisString.length;
 		int anotherStringLength = anotherString.length;
-		int i = 0;
 		int count = 0;
 		// The following While loop will loop for the min of the length of any of the array
 		while(count < Math.min(thisStringLength, anotherStringLength)){
