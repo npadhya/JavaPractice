@@ -13,5 +13,8 @@ public class TestMath {
 		System.out.println(math.isArmstrongNumber(371));
 		System.out.println(math.isArmstrongNumber(153));
 		
+		int[] input = {2,4,3};
+		math.reversIntegerArray(input);
+		
 	}
 }

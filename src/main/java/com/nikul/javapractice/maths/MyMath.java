@@ -70,6 +70,19 @@ public class MyMath {
 		return false;
 	}
 	
-	
+	/*
+	 * Reverse an integer array without any temp variable.
+	 * This method will get an integer array and will reverse the array
+	 */
+	public int[] reversIntegerArray(int[] inputArray){
+		int start = 0;
+		int end = inputArray.length;
+		while(start<end){
+			inputArray[start] = inputArray[start]+inputArray[end];
+			inputArray[end] = inputArray[start] - inputArray[end];
+			inputArray[start] = inputArray[start] - inputArray[end];
+		}
+		return inputArray;
+	}
 	
 }
