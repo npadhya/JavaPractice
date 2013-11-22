@@ -1,6 +1,7 @@
 package com.nikul.javapractice.binarytree;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
@@ -65,5 +66,23 @@ public class TestBinaryTree {
 		Node treeRoot = binaryTree.getTree();
 		binaryTree.addNewNode(7);
 		binaryTree.showTree(treeRoot);
+		assertTrue(true);
+	}
+	
+	@Test
+	public void testSearchingInTree(){
+		BinaryTreeImpl binaryTree = new BinaryTreeImpl();
+		binaryTree.addNewNode(6);
+		binaryTree.addNewNode(4);
+		binaryTree.addNewNode(5);
+		binaryTree.addNewNode(2);
+		binaryTree.addNewNode(1);
+		binaryTree.addNewNode(3);
+		binaryTree.addNewNode(7);
+		
+		Node treeRoot = binaryTree.getTree();
+
+		assertTrue(binaryTree.searchNode(treeRoot,2));
+		assertFalse(binaryTree.searchNode(treeRoot,9));
 	}
 }

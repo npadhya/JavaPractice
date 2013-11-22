@@ -67,4 +67,22 @@ public class BinaryTreeImpl {
 		showTree(root.getLeftChild());
 		showTree(root.getRightChild());
 	}
+
+	/*
+	 * This method is for searching a value in the tree and see if its present or not
+	 */
+	public boolean searchNode(Node root, int i) {
+		if(i < root.getData() && root.getLeftChild() != null){
+			return searchNode(root.getLeftChild(), i);
+		}
+		else if(i > root.getData() && root.getRightChild() != null ){
+			return searchNode(root.getRightChild(), i);
+		}
+		else if(root.getData()==i){
+			System.out.println(i +" is found as a child of " + root.getParant().getData());
+			return true;
+		}else{
+			return false;
+		}
+	}
 }
