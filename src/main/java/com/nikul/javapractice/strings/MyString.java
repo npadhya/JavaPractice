@@ -137,7 +137,7 @@ public class MyString {
         int i, j = 0;
         
         StringBuffer sb  = new StringBuffer();
-        // Start a loop from 0 to either the length of the mainString or if all the subSting is comaired with mainString
+        // Start a loop from 0 to either the length of the mainString or if all the subSting is compared with mainString
         for (i = 0; i < mainString.length() && j < subString.length(); ++i)
         {
             // If char from mainString is matched with char in subString
