@@ -63,9 +63,14 @@ public class BinaryTreeImpl {
 		if(root == this.root){
 			System.out.println(root.getData());
 		}
-		System.out.println(root.getData() + "\'s - Left child is : "+ root.getLeftChild().getData()+" and Right child is : "+root.getRightChild().getData());
-		showTree(root.getLeftChild());
-		showTree(root.getRightChild());
+		if(root.getLeftChild() != null){
+			System.out.println(root.getData() + "\'s - Left child is : "+ root.getLeftChild().getData());
+			showTree(root.getLeftChild());
+		}
+		if(root.getRightChild() != null){
+			System.out.println(root.getData() + "\'s - Right child is : "+ root.getRightChild().getData());
+			showTree(root.getRightChild());
+		}
 	}
 
 	/*

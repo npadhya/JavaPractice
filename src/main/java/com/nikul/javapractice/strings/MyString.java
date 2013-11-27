@@ -137,7 +137,7 @@ public class MyString {
         int i, j = 0;
         
         StringBuffer sb  = new StringBuffer();
-        // Start a loop from 0 to eithr the length of the mainString or if all the subSting is comaired with mainString
+        // Start a loop from 0 to either the length of the mainString or if all the subSting is comaired with mainString
         for (i = 0; i < mainString.length() && j < subString.length(); ++i)
         {
             // If char from mainString is matched with char in subString
@@ -146,7 +146,7 @@ public class MyString {
                 ++j;
             }
             // If the char does not match but some previous char are matched than restart for the subString
-            // Example "internnet" and "net" after comparing 1st 'n' if the 2nd char is not 'n' try re-matching the subSting by reducing the main String.
+            // Example "Internnet" and "net" after comparing 1st 'n' if the 2nd char is not 'n' try re-matching the subSting by reducing the main String.
             else if(j>0){
                 j=0;
                 i--;

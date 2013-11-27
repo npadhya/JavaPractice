@@ -72,17 +72,25 @@ public class TestBinaryTree {
 	@Test
 	public void testSearchingInTree(){
 		BinaryTreeImpl binaryTree = new BinaryTreeImpl();
-		binaryTree.addNewNode(6);
+		binaryTree.addNewNode(1);
+		binaryTree.addNewNode(2);
+		binaryTree.addNewNode(3);
 		binaryTree.addNewNode(4);
 		binaryTree.addNewNode(5);
-		binaryTree.addNewNode(2);
-		binaryTree.addNewNode(1);
-		binaryTree.addNewNode(3);
+		binaryTree.addNewNode(6);
 		binaryTree.addNewNode(7);
+		binaryTree.addNewNode(8);
+		binaryTree.addNewNode(9);
+		binaryTree.addNewNode(10);
+		binaryTree.addNewNode(11);
+		binaryTree.addNewNode(12);
+		binaryTree.addNewNode(13);
+		binaryTree.addNewNode(14);
+		binaryTree.addNewNode(15);
 		
 		Node treeRoot = binaryTree.getTree();
-
+		binaryTree.showTree(treeRoot);
 		assertTrue(binaryTree.searchNode(treeRoot,2));
-		assertFalse(binaryTree.searchNode(treeRoot,9));
+		assertTrue(binaryTree.searchNode(treeRoot,9));
 	}
 }
