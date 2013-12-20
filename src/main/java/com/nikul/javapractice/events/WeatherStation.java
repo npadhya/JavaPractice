@@ -89,6 +89,7 @@ public class WeatherStation extends Frame implements Serializable {
       while (e.hasMoreElements()) {
         SunListener l = (SunListener) e.nextElement();
         l.sunMoved(event);
+        l.sunStopped(event);
       }
     }
   }

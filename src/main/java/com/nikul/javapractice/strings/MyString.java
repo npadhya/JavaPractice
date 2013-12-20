@@ -1,5 +1,9 @@
 package com.nikul.javapractice.strings;
 
+import java.util.Dictionary;
+import java.util.HashMap;
+import java.util.Map;
+
 public class MyString {
 
 	private String theString;
@@ -30,33 +34,34 @@ public class MyString {
 		int thisStringLength = thisString.length;
 		int anotherStringLength = anotherString.length;
 		int count = 0;
-		// The following While loop will loop for the min of the length of any of the array
-		while(count < Math.min(thisStringLength, anotherStringLength)){
-			if(thisString[count]>anotherString[count]){
-				//System.out.println("This string is bigger");
+		// The following While loop will loop for the min of the length of any
+		// of the array
+		while (count < Math.min(thisStringLength, anotherStringLength)) {
+			if (thisString[count] > anotherString[count]) {
+				// System.out.println("This string is bigger");
 				return -1;
-			}
-			else if(thisString[count]<anotherString[count]){
-				//System.out.println("Another String is bigger");
+			} else if (thisString[count] < anotherString[count]) {
+				// System.out.println("Another String is bigger");
 				return 1;
-			}
-			else{
-				//System.out.println("The String Matched");
+			} else {
+				// System.out.println("The String Matched");
 			}
 			++count;
 		}
-		// This if loop is to check if the length of the array is not equal and return accordingly.
-		if(thisStringLength < anotherStringLength){
-			//System.out.println("This string is bigger");
+		// This if loop is to check if the length of the array is not equal and
+		// return accordingly.
+		if (thisStringLength < anotherStringLength) {
+			// System.out.println("This string is bigger");
 			return -1;
-		}else if(thisStringLength > anotherStringLength){
-			//System.out.println("Another String is bigger");
+		} else if (thisStringLength > anotherStringLength) {
+			// System.out.println("Another String is bigger");
 			return 1;
 		}
 		return 0;
 	}
 
-	/* The following method will remove a given character from the string using
+	/*
+	 * The following method will remove a given character from the string using
 	 * StringBuffer
 	 */
 	public String removeChar(char c) {
@@ -108,17 +113,17 @@ public class MyString {
 
 		return newString;
 	}
-	
+
 	/*
-	The following method will reverse a string character by character
-	*/
-	public static String reverseString(String str){
+	 * The following method will reverse a string character by character
+	 */
+	public static String reverseString(String str) {
 
 		char[] string = str.toCharArray();
-		
+
 		int start = 0;
-		int end = str.length()-1;
-		while(start < end){
+		int end = str.length() - 1;
+		while (start < end) {
 			char temp = string[start];
 			string[start] = string[end];
 			string[end] = temp;
@@ -128,43 +133,79 @@ public class MyString {
 		String newString = new String(string);
 		return newString;
 	}
-	
-	/*
-	 *  The following method find out the position of a subString in a main String
-	 *  Given a main String an SubString, The method will loop and see when a SubString is starting in the loop.
-	*/
-	public static void subString(String mainString, String subString,String newString){
-        int i, j = 0;
-        
-        StringBuffer sb  = new StringBuffer();
-        // Start a loop from 0 to either the length of the mainString or if all the subSting is compared with mainString
-        for (i = 0; i < mainString.length() && j < subString.length(); ++i)
-        {
-            // If char from mainString is matched with char in subString
-            if (mainString.charAt(i) == subString.charAt(j))
-            {
-                ++j;
-            }
-            // If the char does not match but some previous char are matched than restart for the subString
-            // Example "Internnet" and "net" after comparing 1st 'n' if the 2nd char is not 'n' try re-matching the subSting by reducing the main String.
-            else if(j>0){
-                j=0;
-                i--;
-            }
-            else
-            {
-            	sb.append(mainString.charAt(i));
-                j = 0;
-                //i--;
-            }
 
-        }
-        // if j is equal to the subSting length means all the char in subString is matched with mainString
-        if (j == subString.length())
-        {
-        	// get the number of time i was incremented - the length of the subString.
-        	sb.append(newString, i-subString.length(), newString.length());
-            System.out.println("Yes.. A match "+(i-subString.length()));
-        }
+	/*
+	 * The following method find out the position of a subString in a main
+	 * String Given a main String an SubString, The method will loop and see
+	 * when a SubString is starting in the loop.
+	 */
+	public static void subString(String mainString, String subString,
+			String newString) {
+		int i, j = 0;
+
+		StringBuffer sb = new StringBuffer();
+		// Start a loop from 0 to either the length of the mainString or if all
+		// the subSting is compared with mainString
+		for (i = 0; i < mainString.length() && j < subString.length(); ++i) {
+			// If char from mainString is matched with char in subString
+			if (mainString.charAt(i) == subString.charAt(j)) {
+				++j;
+			}
+			// If the char does not match but some previous char are matched
+			// than restart for the subString
+			// Example "Internnet" and "net" after comparing 1st 'n' if the 2nd
+			// char is not 'n' try re-matching the subSting by reducing the main
+			// String.
+			else if (j > 0) {
+				j = 0;
+				i--;
+			} else {
+				sb.append(mainString.charAt(i));
+				j = 0;
+				// i--;
+			}
+
+		}
+		// if j is equal to the subSting length means all the char in subString
+		// is matched with mainString
+		if (j == subString.length()) {
+			// get the number of time i was incremented - the length of the
+			// subString.
+			sb.append(newString, i - subString.length(), newString.length());
+			System.out.println("Yes.. A match " + (i - subString.length()));
+		}
+	}
+
+	public static void makeSantence(String wrongstring) {
+		Map<String, String> dictionary = new HashMap<String, String>();
+		dictionary.put("This", "1");
+		dictionary.put("is", "2");
+		dictionary.put("awesome", "some");
+		dictionary.put("value", "value");
+		dictionary.put("good", "good");
+		dictionary.put("item", "item");
+		dictionary.put("some", "item");
+
+		StringBuffer sb = new StringBuffer();
+		String temp = "";
+		String temp2 = "";
+		for (int i = 0, j = 1, k = wrongstring.length(); j <= k; j++) {
+			temp = wrongstring.substring(i, j);
+			if (dictionary.containsKey(temp)) {
+				sb.append(temp + " ");
+				System.out.println("Word found");
+				i = j;
+			} else {
+				for (int l = 0, n = temp.length(); l <= n; l++) {
+					temp2 = temp.substring(l, n);
+					if (dictionary.containsKey(temp2)) {
+						sb.append(temp2 + " ");
+						System.out.println("Word found");
+						i = j;
+					}
+				}
+			}
+		}
+		System.out.println(sb.toString());
 	}
 }

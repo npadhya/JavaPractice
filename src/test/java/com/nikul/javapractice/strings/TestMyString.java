@@ -5,7 +5,11 @@ public class TestMyString {
 	public static void main(String[] string){
 		
 		char[] anotherString;
-		MyString myString;
+		MyString myString = new MyString("something");
+		
+		String s = "Thisiissomegoodawesome 3221iteem312";
+		MyString.makeSantence(s);
+		
 		
 		anotherString = "abc".toCharArray();
 		myString = new MyString("abc");

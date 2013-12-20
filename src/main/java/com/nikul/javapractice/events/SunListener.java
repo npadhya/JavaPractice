@@ -10,4 +10,5 @@ public interface SunListener extends EventListener {
    *   in a SunEvent source object 
    */
  public void sunMoved(SunEvent e);
+ public void sunStopped(SunEvent e);
 }

@@ -7,11 +7,13 @@ class SunEvent extends EventObject {
 
 	private boolean risen;
 	private Date date;
+	int stopped = 1;
 
 	public SunEvent(Object source, boolean risen, Date date) {
 		super(source);
 		this.risen = risen;
 		this.date = date;
+		stopped = (stopped + 1) % 2 ;
 	}
 
 	/** return a String representation of the date */
@@ -24,5 +26,13 @@ class SunEvent extends EventObject {
 	/** return whether the sun rose or set */
 	public boolean isRisen() {
 		return risen;
+	}
+
+	public boolean isStop() {
+		System.out.println(stopped);
+		if(stopped == 0)
+			return false;
+		else
+			return true;
 	}
 }
