@@ -1,6 +1,5 @@
 package com.nikul.javapractice.strings;
 
-import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +16,7 @@ public class MyString {
 	}
 
 	/*
-	 * do the Lexographic comparision between 2 strings One String is the object
+	 * do the Lexographic comparison between 2 strings One String is the object
 	 * and another String is the passed to the method as Char array
 	 */
 	public int LexographicComparision(char[] anotherString) {
