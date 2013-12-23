@@ -3,9 +3,15 @@ package com.nikul.javapractice.strings;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.nikul.javapractice.stack.StackImpl;
+
 public class MyString {
 
 	private String theString;
+	
+	public MyString(){
+		
+	}
 
 	public MyString(String str) {
 		this.theString = str;
@@ -116,7 +122,7 @@ public class MyString {
 	/*
 	 * The following method will reverse a string character by character
 	 */
-	public static String reverseString(String str) {
+	public String reverseString(String str) {
 
 		char[] string = str.toCharArray();
 
@@ -206,5 +212,69 @@ public class MyString {
 			}
 		}
 		System.out.println(sb.toString());
+	}
+
+	/**
+	 * Reverse a sentence separated by " " (space character) using stack
+	 * Example: INPUT : This is a great day OUTPUT : day great a is This
+	 */
+	public String reversSentance(String inputSentence) {
+		StringBuffer inString = new StringBuffer(inputSentence);
+		StringBuffer outString = new StringBuffer();
+		StackImpl myStack = new StackImpl();
+
+		for (int i = 0, j = inputSentence.length(); i < j; i++) {
+			if (inString.charAt(i) != ' ') {
+				outString.append(inputSentence.substring(i, i + 1));
+			} else {
+				myStack.stackPush(" " + outString.toString());
+				outString.setLength(0);
+
+			}
+		}
+
+		while (!myStack.isStackEmpty()) {
+			outString.append(myStack.stackPop());
+		}
+		return outString.toString();
+	}
+
+	/**
+	 * Reverse a sentence separated by " " (space character) in place Example:
+	 * INPUT : This is a great day OUTPUT : day great a is This
+	 */
+	public String reversSentence2(String inputSentence) {
+		char[] string = inputSentence.toCharArray();
+
+		int start = 0;
+		int end = inputSentence.length() - 1;
+		
+		swap(string, start, end);
+		int k =0,i=0;
+		for (int j = end; i <= j; i++) {
+			if (string[i] == ' ') {
+				swap(string, k, i - 1);
+				k = i + 1;
+			}
+			if(i == j){
+				swap(string,k,j);
+			}
+		}
+		String output = string.toString();
+		return output;
+	}
+
+	private char[] swap(char[] input, int start, int end) {
+		while (start < end) {
+			if (input[start] != input[end]) {
+				char temp = input[start];
+				input[start] = input[end];
+				input[end] = temp;
+			}
+			start++;
+			end--;
+		}
+
+		return input;
 	}
 }
