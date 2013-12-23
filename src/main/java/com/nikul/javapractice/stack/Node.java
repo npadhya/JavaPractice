@@ -2,18 +2,18 @@ package com.nikul.javapractice.stack;
 
 public class Node {
 
-	private int data;
+	private String data;
 	private Node top;
 	private Node bottom;
 	
-	public Node(int data){
+	public Node(String data){
 		this.data = data;
 	}
 	
-	public int getData() {
+	public String getData() {
 		return data;
 	}
-	public void setData(int data) {
+	public void setData(String data) {
 		this.data = data;
 	}
 	public Node getTop() {

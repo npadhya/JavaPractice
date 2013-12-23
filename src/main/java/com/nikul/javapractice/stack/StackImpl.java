@@ -8,7 +8,7 @@ public class StackImpl {
 	/*
 	 * push data to the TOP of the Stack
 	 */
-	public void stackPush(int data){
+	public void stackPush(String data){
 		temp = new Node(data);
 		if(isStackEmpty()){
 			System.out.println("Creating New stack..");
@@ -24,13 +24,13 @@ public class StackImpl {
 	/*
 	 * pop data out of the stack from the TOP of the stack
 	 */
-	public int stackPop(){
+	public String stackPop(){
 		if(!isStackEmpty()){
-			int data = top.getData();
+			String data = top.getData();
 			top = top.getBottom();
 			return data;
 		}
-		return 0;
+		return "";
 	}
 	
 	/*
