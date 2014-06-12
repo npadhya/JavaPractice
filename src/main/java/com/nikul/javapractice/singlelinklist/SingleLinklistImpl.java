@@ -61,5 +61,37 @@ public class SingleLinklistImpl {
 				temp = temp.getNext();
 			}
 		}
-	}	
+	}
+
+    public void partList(){
+        int compair = head.getData();
+        Node current = head.getNext();
+
+        Node SS = null;
+        Node SE = null;
+        Node LS = null;
+        Node LE = null;
+
+        while(current!= null){
+            if(current.getData()> compair){
+                if(LE == null){
+                    LS = current;
+                    LE = current;
+                }else{
+                    LE.setNext(current);
+                    LE = current;
+                }
+            }else{
+                if(SE == null){
+                    SS = current;
+                    SE = current;
+                }else{
+                    SE.setNext(current);
+                    SE = current;
+                }
+            }
+            current = current.getNext();
+        }
+        SE.setNext(LS);
+    }
 }

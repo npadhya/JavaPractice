@@ -51,4 +51,24 @@ public class TestSingleLinklist {
 		singlyLinklist.addData(4);
 		singlyLinklist.showList();
 	}
+
+    @Test
+    public void testPartitionList(){
+        LinkedList ll = new LinkedList(6);
+        ll.addNode(2);
+        ll.addNode(1);
+        ll.addNode(4);
+        ll.addNode(9);
+        ll.addNode(5);
+        ll.addNode(10);
+        ll.addNode(11);
+        ll.addNode(12);
+        ll.addNode(7);
+        ll.addNode(13);
+        ll.addNode(3);
+        ll.addNode(21);
+        ll.printLL();
+        ll.partList();
+        ll.printLL();
+    }
 }
