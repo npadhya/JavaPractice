@@ -1,5 +1,6 @@
 package com.npadhya.practice.nodes;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Node {
@@ -10,7 +11,7 @@ public class Node {
     private Node previousPointer;
     private Node parentPointer;
 
-    private List<Node> neighbors;
+    private List<Node> neighbors = new ArrayList<Node>();
 
     public Node(String stringData,int numberData){
         this.stringData = stringData;

@@ -1,15 +1,14 @@
-package com.npadhya.practice.tree;
+package com.npadhya.practice.graph;
 
+import com.npadhya.practice.graphs.GraphUtil;
+import com.npadhya.practice.graphs.SimpleGraph;
 import com.npadhya.practice.nodes.Edge;
 import com.npadhya.practice.nodes.Node;
 import org.testng.annotations.Test;
 
-public class TreeTests {
-
-    TreeUtil myTreeUtil = new TreeUtil();
-
+public class GraphTests {
     @Test
-    public void firstTreeTest(){
+    public void firstGraphTest(){
         Node nodeA = new Node("A",1);
         Node nodeB = new Node("B",2);
         Node nodeC = new Node("C",3);
@@ -85,25 +84,25 @@ public class TreeTests {
         edgeGE.setDestinationNode(nodeE);
         edgeGE.setWeight(6);
 
-        SimpleTree simpleTree = new SimpleTree();
-        simpleTree.addEdge(edgeAB);
-        simpleTree.addEdge(edgeBC);
-        simpleTree.addEdge(edgeAC);
-        simpleTree.addEdge(edgeAD);
-        simpleTree.addEdge(edgeDI);
-        simpleTree.addEdge(edgeCI);
-        simpleTree.addEdge(edgeBH);
-        simpleTree.addEdge(edgeHF);
-        simpleTree.addEdge(edgeAF);
-        simpleTree.addEdge(edgeBG);
-        simpleTree.addEdge(edgeAG);
-        simpleTree.addEdge(edgeAE);
-        simpleTree.addEdge(edgeGE);
+        SimpleGraph simpleGraph = new SimpleGraph();
+        simpleGraph.addEdge(edgeAB);
+        simpleGraph.addEdge(edgeBC);
+        simpleGraph.addEdge(edgeAC);
+        simpleGraph.addEdge(edgeAD);
+        simpleGraph.addEdge(edgeDI);
+        simpleGraph.addEdge(edgeCI);
+        simpleGraph.addEdge(edgeBH);
+        simpleGraph.addEdge(edgeHF);
+        simpleGraph.addEdge(edgeAF);
+        simpleGraph.addEdge(edgeBG);
+        simpleGraph.addEdge(edgeAG);
+        simpleGraph.addEdge(edgeAE);
+        simpleGraph.addEdge(edgeGE);
 
-        System.out.println("Total number of Vertex in the tree are : " + simpleTree.vertexSize() );
-        System.out.println("Total number of Edge in the tree are : " + simpleTree.edgeSize() );
+        System.out.println("Total number of Vertex in the tree are : " + simpleGraph.vertexSize() );
+        System.out.println("Total number of Edge in the tree are : " + simpleGraph.edgeSize() );
 
-        TreeUtil myTreeUtil = new TreeUtil();
-        myTreeUtil.printTree(simpleTree);
+        GraphUtil myGraphUtil = new GraphUtil();
+        myGraphUtil.printGraph(simpleGraph);
     }
 }

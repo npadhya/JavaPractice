@@ -1,11 +1,12 @@
-package com.npadhya.practice.tree;
+package com.npadhya.practice.graphs;
 
+import com.npadhya.practice.interfaces.Graph;
 import com.npadhya.practice.interfaces.Tree;
 import com.npadhya.practice.nodes.Node;
 
 import java.util.List;
 
-public class TreeUtil {
+public class GraphUtil {
 
     public void breathFirstSearch(Tree inTree, Node root){
         System.out.println("Doing Breath first search for the Tree");
@@ -15,11 +16,12 @@ public class TreeUtil {
         System.out.println("Doing depth first search for the Tree");
     }
 
-    public List<Node> findPath(Tree tree, Node root, Node leaf){
-       return null;
+    public List<Node> findPath(Tree tree, Node source, Node destination){
+
+        return null;
     }
 
-    public void printTree(Tree inTree){
-        inTree.print();
+    public void printGraph(Graph inGraph){
+        inGraph.print();
     }
 }

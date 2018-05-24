@@ -47,7 +47,7 @@ public class NqueenProblem {
                 if(queens.get(j).get(i)){
                     return false;
                 }
-                if(queens.get(j).get(i))
+                //if(queens.get(j).get(i))
             }
         }
 
