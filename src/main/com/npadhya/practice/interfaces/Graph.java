@@ -4,6 +4,7 @@ import com.npadhya.practice.nodes.Edge;
 import com.npadhya.practice.nodes.Node;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 
@@ -54,6 +55,16 @@ public class Graph implements DataStructures{
         for(Edge eachEdge : edges){
             System.out.println("Edge with weight : " + eachEdge.getWeight() + " has | Source : " + eachEdge.getSourceNode().getStringData() + " | Destination : " + eachEdge.getDestinationNode().getStringData() );
         }
+    }
+
+    public int weightOfTheGraph(){
+        int count = 0;
+        Iterator<Edge> iterator = edges.iterator();
+
+        while(iterator.hasNext()){
+            count += iterator.next().getWeight();
+        }
+        return count;
     }
 
 }

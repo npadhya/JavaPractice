@@ -1,6 +1,7 @@
 package com.npadhya.practice.matrix;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class NqueenProblem {
@@ -9,45 +10,40 @@ public class NqueenProblem {
         if(col <= 3){
             return false;
         }
+        int[] placedQueens = new int[col];
+        Arrays.fill(placedQueens,Integer.MAX_VALUE);
+        return placeQueen(placedQueens,-1);
+    }
 
-        if (placeQueen(col,0)){
+    private static boolean placeQueen(int[] placedQueens, int col){
+        col++;
+        int row = 0;
+        if(placedQueens[placedQueens.length-1] < Integer.MAX_VALUE){
             return true;
         }
+
+        while(row < placedQueens.length){
+            placedQueens[col] = row;
+            if(isSafeToPlace(placedQueens,row,col) && placeQueen(placedQueens,col)){
+                return true;
+            }
+            placedQueens[col]=Integer.MAX_VALUE;
+            row++;
+        }
+
         return false;
     }
 
-    private static boolean placeQueen(int col, int currentCol){
-        List<List<Boolean>> queens = new ArrayList<List<Boolean>>();
-        if(currentCol>col){
-            return true;
-        }
-        int row = 0;
-        while(row < col){
-            List<Boolean> rows = new ArrayList<Boolean>();
-            rows.add(row,true);
-            queens.add(currentCol,rows);
-            if(isSafeToPlace(queens,row,currentCol) && placeQueen(col,currentCol++)){
-                return true;
-            }
-            //rows.remove(row);
-            queens.remove(currentCol);
-            //queens.set(row,cols);
-            row++;
-        }
-        return true;
-    }
-
-    private static boolean isSafeToPlace(List<List<Boolean>> queens, int row, int col){
-        if(queens.size() == row){
+    private static boolean isSafeToPlace(int[] queens, int row, int col){
+        if(col != 0 && queens[col-1] == row){
             return false;
         }
 
-        for(int i = 0 ; i < queens.size(); i++){
-            for(int j = 0; j < queens.get(i).size();j++){
-                if(queens.get(j).get(i)){
-                    return false;
-                }
-                //if(queens.get(j).get(i))
+        for(int i = 0 ; i < col; i++){
+            int prevCols = i;
+            int prevRows = queens[i];
+            if(prevRows == row || Math.abs(prevCols - col) == Math.abs(prevRows - row)){
+                return false;
             }
         }
 
