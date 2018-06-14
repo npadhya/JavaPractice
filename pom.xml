@@ -8,14 +8,18 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 	<artifactId>JavaPractice</artifactId>
 	<description>This repo is Java practice</description>
 
-
 	<dependencies>
 		<dependency>
 			<groupId>org.testng</groupId>
 			<artifactId>testng</artifactId>
 			<version>6.8</version>
 			<scope>test</scope>
-		</dependency>
+		</dependency><dependency>
+		<groupId>org.testng</groupId>
+		<artifactId>testng</artifactId>
+		<version>RELEASE</version>
+		<scope>test</scope>
+	</dependency>
 	</dependencies>
 
 </project>

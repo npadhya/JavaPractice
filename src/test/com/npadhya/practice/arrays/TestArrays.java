@@ -34,4 +34,27 @@ public class TestArrays {
         Assert.assertEquals(ans,18);
     }
 
+    @Test
+    public void longestConsiqutiveSubsequenceTest1(){
+        int ans = myArrayUtils.longestConsiqutiveSubsequence(new int[]{4,11,1,8,3,6,9,5});
+        Assert.assertEquals(ans,4);
+    }
+
+    @Test
+    public void longestConsiqutiveSubsequenceTest2(){
+        int ans = myArrayUtils.longestConsiqutiveSubsequence(new int[]{1,2,3,4,5,6});
+        Assert.assertEquals(ans,6);
+    }
+
+    @Test
+    public void longestConsiqutiveSubsequenceTest3(){
+        int ans = myArrayUtils.longestConsiqutiveSubsequence(new int[]{6,5,4,3,2,1});
+        Assert.assertEquals(ans,6);
+    }
+
+    @Test
+    public void longestConsiqutiveSubsequenceTest4(){
+        int ans = myArrayUtils.longestConsiqutiveSubsequence(new int[]{1,3,5,7,9,11,13});
+        Assert.assertEquals(ans,1);
+    }
 }

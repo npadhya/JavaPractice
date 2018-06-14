@@ -30,4 +30,16 @@ public class TestBitwiseUtils {
     public void bitWiseAndOperationTest() {
         bitwiseUtils.bitWiseAndOperation();
     }
+
+    @Test
+    public void arithmeticVsBitwiseShiftTest() {
+        bitwiseUtils.arithmeticVsBitwiseShift();
+    }
+
+    @Test
+    public void bitCountTest(){
+        System.out.println(bitwiseUtils.bitCount(6));
+        System.out.println(bitwiseUtils.bitCount(-6));
+        //bitwiseUtils.temp();
+    }
 }

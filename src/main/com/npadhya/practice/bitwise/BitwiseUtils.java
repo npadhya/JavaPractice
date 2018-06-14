@@ -36,6 +36,14 @@ public class BitwiseUtils {
         }
     }
 
+    public void arithmeticVsBitwiseShift(){
+         // prints "11111111111111111111111111111111"
+        System.out.println(Integer.toBinaryString(47 >> 3));
+        // prints "11111111111111111111111111111111"
+        System.out.println(Integer.toBinaryString(47 >>> 3));
+
+    }
+
     int updateBits(int m, int n, int j, int i){
         int allOnes = ~0;
         int allOnes2 = 1;
@@ -85,6 +93,7 @@ public class BitwiseUtils {
             System.out.println(i + " =" + ans);
         }
     }
+
     public void bitWiseNumberPrint(){
         /*printBitWise(2);
         printBitWise(-2);
@@ -135,6 +144,42 @@ public class BitwiseUtils {
         printBitWise(687932900);
         printBitWise(-687932900);
         printBitWise(687932900 & -687932900);
+    }
+
+    public int bitCount(int i){
+        printBitWise(i);
+        printBitWise(i >> 1);
+        printBitWise(i >>> 1);
+
+        printBitWise((i >>> 1) & 0x55555555);
+        i = i - ((i >>> 1) & 0x55555555);
+        printBitWise(i);
+        int k = i >>> 2;
+        printBitWise(k);
+        printBitWise(i & 0x33333333);
+        i = (i & 0x33333333) + (( i >>> 2) & 0x33333333);
+        printBitWise(i);
+        int l = i >>> 4;
+        printBitWise(l);
+        i = (i + (i >>>4 )) & 0x0f0f0f0f;
+        printBitWise(i);
+        int m = i >>> 8;
+        printBitWise(m);
+        i = i + (i >>> 8);
+        printBitWise(i);
+        int n = i >>> 16;
+        printBitWise(n);
+        i = i + (i >>> 16);
+        printBitWise(i);
+        return i & 0x3f;
+    }
+
+    public void temp(){
+        for(int i  = -256 ; i < 256 ; i ++){
+            printBitWise(i);
+            printBitWise(i >>> 1);
+            printBitWise(i - (i >>> 1));
+        }
     }
 
     public void printBitWise(int n){

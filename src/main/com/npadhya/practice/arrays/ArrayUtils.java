@@ -1,5 +1,8 @@
 package com.npadhya.practice.arrays;
 
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.Stack;
 
 public class ArrayUtils {
@@ -49,5 +52,32 @@ public class ArrayUtils {
         }
 
         return maxArea;
+    }
+
+    public int longestConsiqutiveSubsequence(int[] input){
+        int globalMax = 0;
+        Set<Integer> inputSet = new HashSet<Integer>();
+        for(Integer i : input){
+            inputSet.add(i);
+        }
+        Set<Integer> consiqNumbers = new HashSet<Integer>();
+
+        for(int i = 0 ; i < input.length;i++){
+            int localMax = 0;
+            int curNum = input[i];
+            int temp = curNum+1;
+            while(inputSet.contains(curNum) && !consiqNumbers.contains(curNum)){
+                consiqNumbers.add(curNum);
+                curNum--;
+                localMax++;
+            }
+            while(inputSet.contains(temp) && !consiqNumbers.contains(temp)){
+                consiqNumbers.add(temp);
+                temp++;
+                localMax++;
+            }
+            globalMax = Math.max(globalMax,localMax);
+        }
+        return globalMax;
     }
 }
