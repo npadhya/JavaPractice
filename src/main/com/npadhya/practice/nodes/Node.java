@@ -3,19 +3,22 @@ package com.npadhya.practice.nodes;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Node {
+public class Node implements Comparable<Node>{
 
     private String stringData;
-    private int numberData;
+    private int weight;
+    private int data;
+    private Node leftChild;
+    private Node rightChild;
+    private Node parent;
     private Node nextPointer;
     private Node previousPointer;
-    private Node parentPointer;
 
     private List<Node> neighbors = new ArrayList<Node>();
 
     public Node(String stringData,int numberData){
         this.stringData = stringData;
-        this.numberData = numberData;
+        this.weight = numberData;
     }
     public List<Node> getNeighbors() {
         return neighbors;
@@ -33,12 +36,36 @@ public class Node {
         this.stringData = stringData;
     }
 
-    public int getNumberData() {
-        return numberData;
+    public int getWeight() {
+        return weight;
     }
 
-    public void setNumberData(int numberData) {
-        this.numberData = numberData;
+    public void setWeight(int weight) {
+        this.weight = weight;
+    }
+
+    public Node getLeftChild() {
+        return leftChild;
+    }
+
+    public void setLeftChild(Node leftChild) {
+        this.leftChild = leftChild;
+    }
+
+    public Node getRightChild() {
+        return rightChild;
+    }
+
+    public void setRightChild(Node rightChild) {
+        this.rightChild = rightChild;
+    }
+
+    public Node getParent() {
+        return parent;
+    }
+
+    public void setParent(Node parent) {
+        this.parent = parent;
     }
 
     public Node getNextPointer() {
@@ -57,11 +84,31 @@ public class Node {
         this.previousPointer = previousPointer;
     }
 
-    public Node getParentPointer() {
-        return parentPointer;
+    public int getData() {
+        return data;
     }
 
-    public void setParentPointer(Node parentPointer) {
-        this.parentPointer = parentPointer;
+    public void setData(int data) {
+        this.data = data;
+    }
+
+    @Override
+    public int compareTo(Node o) {
+        if (this.data == o.data) {
+            return 0;
+        } else if (this.data > o.data){
+            return 1;
+        } else {
+            return -1;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Node{" +
+                "stringData='" + stringData + '\'' +
+                ", weight=" + weight +
+                ", data=" + data +
+                '}';
     }
 }
